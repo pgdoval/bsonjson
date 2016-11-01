@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddab5859-9caa-48c5-934f-537285568abb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main.class" afterPath="$PROJECT_DIR$/target/classes/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/xson/BsonStringConverter.class" afterPath="$PROJECT_DIR$/target/classes/xson/BsonStringConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/xson/JsonStringConverter.class" afterPath="$PROJECT_DIR$/target/classes/xson/JsonStringConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/xson/BsonStringConverterTest.class" afterPath="$PROJECT_DIR$/target/test-classes/xson/BsonStringConverterTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/xson/JsonStringConverterTest.class" afterPath="$PROJECT_DIR$/target/test-classes/xson/JsonStringConverterTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/8kdata1.iml" afterPath="$PROJECT_DIR$/8kdata1.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java" afterPath="$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java" afterPath="$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java" afterPath="$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java" />
     </list>
     <ignored path="8kdata1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,12 +87,12 @@
       <file leaf-file-name="JsonBsonConverter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+            <state relative-caret-position="138">
+              <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1256#1257#0" expanded="true" />
+                <element signature="e#1717#1718#0" expanded="true" />
+                <element signature="e#1744#1745#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,8 +101,8 @@
       <file leaf-file-name="BsonJsonConverter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+            <state relative-caret-position="514">
+              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +113,8 @@
       <file leaf-file-name="JsonBsonConverterTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+            <state relative-caret-position="399">
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -174,8 +166,8 @@
         <option value="$PROJECT_DIR$/src/test/java/xson/JsonStringConverterTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/xson/BsonStringConverterTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/xson/BsonStringConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java" />
         <option value="$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java" />
       </list>
     </option>
@@ -774,9 +766,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_8kdata1 - 2016.11.01 at 14h 24m 50s.xml">
-      <configuration name="All in 8kdata1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_8kdata1 - 2016.11.01 at 14h 29m 40s.xml">
       <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
@@ -786,23 +775,26 @@
     <history-entry file="All_in_8kdata1 - 2016.11.01 at 16h 23m 29s.xml">
       <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BsonStringConverterTest - 2016.11.01 at 13h 02m 00s.xml">
-      <configuration name="BsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 16h 23m 36s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BsonStringConverterTest - 2016.11.01 at 13h 03m 41s.xml">
-      <configuration name="BsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 03m 32s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonStringConverterTest - 2016.10.30 at 01h 06m 09s.xml">
-      <configuration name="JsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 04m 28s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonStringConverterTest - 2016.11.01 at 12h 54m 55s.xml">
-      <configuration name="JsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 07m 00s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonStringConverterTest - 2016.11.01 at 12h 55m 10s.xml">
-      <configuration name="JsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 07m 20s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonStringConverterTest - 2016.11.01 at 12h 55m 21s.xml">
-      <configuration name="JsonStringConverterTest" configurationId="JUnit" />
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 23m 01s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_8kdata1 - 2016.11.01 at 17h 25m 08s.xml">
+      <configuration name="All in 8kdata1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -817,7 +809,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1216,28 +1208,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xson/JsonBsonConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+        <state relative-caret-position="138">
+          <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1717#1718#0" expanded="true" />
+            <element signature="e#1744#1745#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/xson/JsonBsonConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+        <state relative-caret-position="399">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xson/BsonJsonConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+        <state relative-caret-position="514">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,32 +19,21 @@ public class JsonBsonConverterTest {
 
     private JsonArray jsonArray;
     private JsonObject jsonObject;
+    private JsonObject jsonObjectId;
 
     private BasicDBList bsonArray;
     private BasicDBObject bsonObject;
-
+    private ObjectId objectId;
 
     @Before
     public void setUp() throws Exception {
 
-        jsonArray= new JsonArray();
-
-        JsonObject innerJson2 = new JsonObject();
-        innerJson2.add("age", new JsonPrimitive(29));
-
-        jsonArray.add(innerJson2);
-        jsonArray.add(new JsonPrimitive("primitive"));
-        jsonArray.add(JsonNull.INSTANCE);
+        String id = "21e012ef3291085486698ab1";
 
 
-        jsonObject= new JsonObject();
+        //BSON
 
-        JsonObject innerJson1 = new JsonObject();
-        innerJson1.add("name", new JsonPrimitive("Pablo"));
-
-        jsonObject.add("basicProps", innerJson1);
-        jsonObject.add("extraProps", jsonArray);
-
+        //Array
         bsonArray= new BasicDBList();
 
         BasicDBObject innerBson2 = new BasicDBObject();
@@ -54,6 +44,7 @@ public class JsonBsonConverterTest {
         bsonArray.add(null);
 
 
+        //Object, which contains the array
         bsonObject= new BasicDBObject();
 
         BasicDBObject innerBson1 = new BasicDBObject();
@@ -62,6 +53,38 @@ public class JsonBsonConverterTest {
         bsonObject.put("basicProps", innerBson1);
         bsonObject.put("extraProps", bsonArray);
 
+        //ObjectId
+
+        objectId = new ObjectId(id);
+        bsonObject.put("_id", objectId);
+
+
+        //JSON
+
+        //Array
+        jsonArray= new JsonArray();
+
+        JsonObject innerJson2 = new JsonObject();
+        innerJson2.add("age", new JsonPrimitive(29));
+
+        jsonArray.add(innerJson2);
+        jsonArray.add(new JsonPrimitive("primitive"));
+        jsonArray.add(JsonNull.INSTANCE);
+
+
+        //Object, which contains the array
+        jsonObject= new JsonObject();
+
+        JsonObject innerJson1 = new JsonObject();
+        innerJson1.add("name", new JsonPrimitive("Pablo"));
+
+        jsonObject.add("basicProps", innerJson1);
+        jsonObject.add("extraProps", jsonArray);
+
+        //ObjectId
+        jsonObjectId = new JsonObject();
+        jsonObjectId.add("$oid",new JsonPrimitive(id));
+        jsonObject.add("_id", jsonObjectId);
 
     }
 
@@ -69,8 +92,10 @@ public class JsonBsonConverterTest {
     public void jsonToBson() throws Exception {
         assertEquals(bsonObject,JsonBsonConverter.jsonToBson(jsonObject));
         assertEquals(bsonArray,JsonBsonConverter.jsonToBson(jsonArray));
+
         assertEquals(jsonArray,BsonJsonConverter.bsonToJson(bsonArray));
         assertEquals(jsonObject,BsonJsonConverter.bsonToJson(bsonObject));
+
     }
 
 }

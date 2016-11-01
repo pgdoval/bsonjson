@@ -4,6 +4,7 @@ import com.google.gson.*;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import org.bson.BSONObject;
+import org.bson.types.ObjectId;
 
 /**
  * Created by pablo on 1/11/16.
@@ -26,10 +27,24 @@ public class JsonBsonConverter {
         if(json.isJsonNull())
             return jsonNullToBson(json.getAsJsonNull());
         if(json.isJsonObject())
-            return jsonObjectToBson(json.getAsJsonObject());
+        {
+            ObjectId result = objectIdToBson(json.getAsJsonObject());
+            if(result==null)
+                return jsonObjectToBson(json.getAsJsonObject());
+            else
+                return result;
+        }
         if(json.isJsonPrimitive())
             return jsonPrimitiveToBson(json.getAsJsonPrimitive());
         return null;
+    }
+
+    private static ObjectId objectIdToBson(JsonObject json)
+    {
+        if(json.entrySet().size()==1 && json.get("$oid")!=null && json.get("$oid") instanceof JsonPrimitive)
+            return new ObjectId(json.get("$oid").getAsString());
+        else
+            return null;
     }
 
     private static BSONObject jsonArrayToBson(JsonArray json)
@@ -48,7 +63,8 @@ public class JsonBsonConverter {
     private static BSONObject jsonObjectToBson(JsonObject json)
     {
         BasicDBObject result = new BasicDBObject();
-        json.entrySet().stream().forEach(entry -> result.put(entry.getKey(),innerJsonToBson(entry.getValue())));
+        json.entrySet().stream().forEach(entry ->
+            result.put(entry.getKey(),innerJsonToBson(entry.getValue())));
 
         return result;
     }

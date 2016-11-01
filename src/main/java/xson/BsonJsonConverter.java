@@ -3,6 +3,7 @@ package xson;
 import com.google.gson.*;
 import org.bson.BasicBSONObject;
 import org.bson.types.BasicBSONList;
+import org.bson.types.ObjectId;
 
 /**
  * Created by pablo on 1/11/16.
@@ -51,6 +52,15 @@ public class BsonJsonConverter {
 
                 if(object instanceof String)
                     return new JsonPrimitive((String)object);
+
+                if(object instanceof ObjectId)
+                {
+                    ObjectId objectId = (ObjectId) object;
+
+                    JsonObject result = new JsonObject();
+                    result.add("$oid",new JsonPrimitive(objectId.toString()));
+                    return result;
+                }
             }
         }
          return null;
