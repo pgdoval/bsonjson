@@ -36,6 +36,7 @@ public class BsonStringConverterTest {
         object.put("objectId", new Date());
     }
 
+    //We can only test idempotency because we can't simulate the binary format
     @Test
     public void idempotency() throws Exception {
 

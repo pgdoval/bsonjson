@@ -13,11 +13,14 @@ public class WholePathConverter {
     public static String bsonToJson(byte [] bson) throws Exception {
         BSONObject bsonObject = BsonByteConverter.binaryToBson(bson);
         JsonElement jsonElement = null;
+
+        //We are assuming a bsonObject eill be either an object or a list
         if(bsonObject instanceof BasicBSONObject)
             jsonElement = BsonJsonConverter.bsonToJson((BasicBSONObject) bsonObject);
         if(bsonObject instanceof BasicBSONList)
             jsonElement = BsonJsonConverter.bsonToJson((BasicBSONList) bsonObject);
 
+        //If not, we just throw an Exception
         if(jsonElement == null)
             throw new Exception("bson is not BasicBsonObject or BasicBSONList");
 

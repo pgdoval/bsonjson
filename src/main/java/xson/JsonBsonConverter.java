@@ -27,12 +27,22 @@ public class JsonBsonConverter {
         return null;
     }
 
+    /*
+    * This method is private and returns an Object as opposed to the public one
+    * because this treats inner elements, not outer ones
+    * */
     private static Object innerJsonToBson(JsonElement json)
     {
         if(json.isJsonArray())
             return jsonArrayToBson(json.getAsJsonArray());
+
         if(json.isJsonNull())
             return jsonNullToBson(json.getAsJsonNull());
+
+        /*
+        * This is different from the other cases, because we have encapsulated
+        * ObjectIds and Dates as JsonObjects
+        * */
         if(json.isJsonObject())
         {
             ObjectId objectId = objectIdToBson(json.getAsJsonObject());

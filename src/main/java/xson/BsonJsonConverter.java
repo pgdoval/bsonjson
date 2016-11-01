@@ -35,55 +35,56 @@ public class BsonJsonConverter {
 
     private static JsonElement objectToJson(Object object)
     {
+        if(object==null)
+            return JsonNull.INSTANCE;
+
+        //Composed elements
+        if(object instanceof BasicBSONObject)
+            return bsonToJson((BasicBSONObject) object);
+
         if(object instanceof BasicBSONList )
             return bsonToJson((BasicBSONList)object);
-        else {
-            if (object instanceof BasicBSONObject)
-                return bsonToJson((BasicBSONObject) object);
-            else
-            {
-                if(object==null)
-                    return JsonNull.INSTANCE;
 
-                if(object instanceof Boolean)
-                    return new JsonPrimitive((Boolean)object);
+        //Primitive elements
+        if(object instanceof Boolean)
+            return new JsonPrimitive((Boolean)object);
 
-                if(object instanceof Character)
-                    return new JsonPrimitive((Character)object);
+        if(object instanceof Character)
+            return new JsonPrimitive((Character)object);
 
-                if(object instanceof Number)
-                    return new JsonPrimitive((Number)object);
+        if(object instanceof Number)
+            return new JsonPrimitive((Number)object);
 
-                if(object instanceof String)
-                    return new JsonPrimitive((String)object);
+        if(object instanceof String)
+            return new JsonPrimitive((String)object);
 
-                if(object instanceof ObjectId)
-                {
-                    ObjectId objectId = (ObjectId) object;
+        //Special BSON types
+        if(object instanceof ObjectId)
+            return objectIdToJson((ObjectId) object);
 
-                    JsonObject result = new JsonObject();
-                    result.add("$oid",new JsonPrimitive(objectId.toString()));
-                    return result;
-                }
+        if(object instanceof Date)
+            return dateToJson((Date) object);
 
-
-                if(object instanceof Date)
-                {
-                    Date date = (Date) object;
-
-                    SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-                    sdf.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
-
-                    JsonObject result = new JsonObject();
-                    result.add("$date",new JsonPrimitive(sdf.format(date)));
-                    return result;
-                }
-            }
-        }
-         return null;
+        return null;
     }
 
 
+    private static JsonElement objectIdToJson(ObjectId objectId)
+    {
+        JsonObject result = new JsonObject();
+        result.add("$oid",new JsonPrimitive(objectId.toString()));
+        return result;
+    }
+
+    private static JsonElement dateToJson(Date date)
+    {
+        SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+
+        JsonObject result = new JsonObject();
+        result.add("$date",new JsonPrimitive(sdf.format(date)));
+        return result;
+    }
 
 
 }
