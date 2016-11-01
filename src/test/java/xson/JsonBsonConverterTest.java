@@ -10,6 +10,10 @@ import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import static org.junit.Assert.*;
 
 /**
@@ -29,6 +33,8 @@ public class JsonBsonConverterTest {
     public void setUp() throws Exception {
 
         String id = "21e012ef3291085486698ab1";
+        Date now = new Date();
+
 
 
         //BSON
@@ -58,6 +64,10 @@ public class JsonBsonConverterTest {
         objectId = new ObjectId(id);
         bsonObject.put("_id", objectId);
 
+        //Date
+
+        bsonObject.put("date", now);
+
 
         //JSON
 
@@ -85,6 +95,14 @@ public class JsonBsonConverterTest {
         jsonObjectId = new JsonObject();
         jsonObjectId.add("$oid",new JsonPrimitive(id));
         jsonObject.add("_id", jsonObjectId);
+
+        //Date
+        JsonObject jsonDate = new JsonObject();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+
+        jsonDate.add("$date", new JsonPrimitive(dateFormat.format(now)));
+        jsonObject.add("date", jsonDate);
 
     }
 

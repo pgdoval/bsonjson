@@ -5,6 +5,10 @@ import org.bson.BasicBSONObject;
 import org.bson.types.BasicBSONList;
 import org.bson.types.ObjectId;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 /**
  * Created by pablo on 1/11/16.
  */
@@ -59,6 +63,19 @@ public class BsonJsonConverter {
 
                     JsonObject result = new JsonObject();
                     result.add("$oid",new JsonPrimitive(objectId.toString()));
+                    return result;
+                }
+
+
+                if(object instanceof Date)
+                {
+                    Date date = (Date) object;
+
+                    SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                    sdf.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+
+                    JsonObject result = new JsonObject();
+                    result.add("$date",new JsonPrimitive(sdf.format(date)));
                     return result;
                 }
             }

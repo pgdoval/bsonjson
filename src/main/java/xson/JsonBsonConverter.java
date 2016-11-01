@@ -6,6 +6,11 @@ import com.mongodb.BasicDBObject;
 import org.bson.BSONObject;
 import org.bson.types.ObjectId;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 /**
  * Created by pablo on 1/11/16.
  */
@@ -28,11 +33,15 @@ public class JsonBsonConverter {
             return jsonNullToBson(json.getAsJsonNull());
         if(json.isJsonObject())
         {
-            ObjectId result = objectIdToBson(json.getAsJsonObject());
-            if(result==null)
-                return jsonObjectToBson(json.getAsJsonObject());
-            else
-                return result;
+            ObjectId objectId = objectIdToBson(json.getAsJsonObject());
+            if(objectId!=null)
+                return objectId;
+
+            Date date = dateToBson(json.getAsJsonObject());
+            if(date!=null)
+                return date;
+
+            return jsonObjectToBson(json.getAsJsonObject());
         }
         if(json.isJsonPrimitive())
             return jsonPrimitiveToBson(json.getAsJsonPrimitive());
@@ -43,6 +52,20 @@ public class JsonBsonConverter {
     {
         if(json.entrySet().size()==1 && json.get("$oid")!=null && json.get("$oid") instanceof JsonPrimitive)
             return new ObjectId(json.get("$oid").getAsString());
+        else
+            return null;
+    }
+
+    private static Date dateToBson(JsonObject json)
+    {
+        if(json.entrySet().size()==1 && json.get("$date")!=null && json.get("$date") instanceof JsonPrimitive)
+            try {
+                SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                sdf.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+                return sdf.parse(json.get("$date").getAsString());
+            } catch (ParseException e) {
+                return null;
+            }
         else
             return null;
     }
