@@ -39,7 +39,7 @@ public class BsonStringConverterTest {
     @Test
     public void idempotency() throws Exception {
 
-        assert(object.equals(BsonStringConverter.binaryToBson(BsonStringConverter.bsonToBinary(object))));
+        assert(object.equals(BsonByteConverter.binaryToBson(BsonByteConverter.bsonToBinary(object))));
 
     }
 

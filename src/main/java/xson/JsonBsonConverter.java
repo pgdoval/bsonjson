@@ -1,11 +1,13 @@
 package xson;
 
 import com.google.gson.*;
+import com.google.gson.internal.LazilyParsedNumber;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import org.bson.BSONObject;
 import org.bson.types.ObjectId;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -98,7 +100,33 @@ public class JsonBsonConverter {
             return json.getAsBoolean();
 
         if(json.isNumber())
-            return json.getAsNumber();
+        {
+            /*
+            * It's necessary to unwrap the number manually, because otherwise it can be a
+            * LazilyParsedNumber, if the json number comes from a gson transformation.
+            * That's why we need to convert it another number which contains the real
+            * unwrapped number with its actual data type - be it int, long or double.
+            * */
+            Number n = json.getAsNumber();
+            Number unwrapped;
+
+            if (n instanceof LazilyParsedNumber) {
+                LazilyParsedNumber lpn = (LazilyParsedNumber) n;
+                BigDecimal bigDecimal = new BigDecimal(lpn.toString());
+                if (bigDecimal.scale() <= 0) {
+                    if (bigDecimal.compareTo(new BigDecimal(Integer.MAX_VALUE)) <= 0) {
+                        unwrapped = bigDecimal.intValue();
+                    } else {
+                        unwrapped = bigDecimal.longValue();
+                    }
+                } else {
+                    unwrapped = bigDecimal.doubleValue();
+                }
+            } else {
+                unwrapped = n;
+            }
+            return unwrapped;
+        }
 
         if(json.isString())
             return json.getAsString();

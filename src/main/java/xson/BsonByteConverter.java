@@ -7,7 +7,7 @@ import org.bson.BSONObject;
 /**
  * Created by pablo on 30/10/16.
  */
-public class BsonStringConverter {
+public class BsonByteConverter {
 
 
     public static BSONObject binaryToBson(byte [] fileContent) {
